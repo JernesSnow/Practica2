@@ -1,13 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{C8C7C51B-BD82-4BFE-9144-D64C07667B2B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D3BFDF93-7CA6-41BC-9325-D8DA3DBCA2A8} = {D3BFDF93-7CA6-41BC-9325-D8DA3DBCA2A8}
+		{DEEE4D97-7C17-4B08-8F02-495789C0FEB2} = {DEEE4D97-7C17-4B08-8F02-495789C0FEB2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoADatos", "AccesoADatos\AccesoADatos.csproj", "{DEEE4D97-7C17-4B08-8F02-495789C0FEB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaDeNegocio", "LogicaDeNegocio\LogicaDeNegocio.csproj", "{D3BFDF93-7CA6-41BC-9325-D8DA3DBCA2A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEEE4D97-7C17-4B08-8F02-495789C0FEB2} = {DEEE4D97-7C17-4B08-8F02-495789C0FEB2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

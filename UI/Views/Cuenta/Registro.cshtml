@@ -1,0 +1,57 @@
+﻿@model UI.Models.RegistroViewModel
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<h2>Registro competencia U Fidélitas</h2>
+
+<form asp-action="Registro" method="post" id="formRegistro">
+    <div class="mb-3">
+        <label asp-for="NombreCompleto" class="form-label"></label>
+        <input asp-for="NombreCompleto" class="form-control" />
+        <!-- Mensaje de error de jQuery -->
+        <span class="text-danger" id="errNombre"></span>
+        <!-- Mensaje de validación del servidor -->
+        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Correo" class="form-label"></label>
+        <input asp-for="Correo" class="form-control" />
+        <span class="text-danger" id="errCorreo"></span>
+        <span asp-validation-for="Correo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Telefono" class="form-label"></label>
+        <input asp-for="Telefono" class="form-control" />
+        <span class="text-danger" id="errTelefono"></span>
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Carrera" class="form-label"></label>
+        <select asp-for="Carrera"
+                class="form-select"
+                asp-items="@(new SelectList((IEnumerable<string>)ViewBag.Carreras))">
+            <option value="">-- Seleccione una carrera --</option>
+        </select>
+        <span asp-validation-for="Carrera" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+</form>

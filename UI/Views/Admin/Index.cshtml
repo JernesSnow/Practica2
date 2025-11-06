@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AccesoADatos.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Panel de administración";
+}
+
+<h2>Solicitudes de participación</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Carrera</th>
+            <th>Teléfono</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.NombreCompleto</td>
+                <td>@e.Correo</td>
+                <td>@e.Carrera</td>
+                <td>@e.Telefono</td>
+                <td>@e.Rol.Nombre</td>
+                <td>@e.EstadoSolicitud</td>
+                <td>
+                    <form asp-action="CambiarEstado" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@e.Id" />
+                        <input type="hidden" name="nuevoEstado" value="Aprobado" />
+                        <button type="submit" class="btn btn-sm btn-success">Aprobar</button>
+                    </form>
+                    <form asp-action="CambiarEstado" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@e.Id" />
+                        <input type="hidden" name="nuevoEstado" value="Rechazado" />
+                        <button type="submit" class="btn btn-sm btn-danger">Rechazar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
